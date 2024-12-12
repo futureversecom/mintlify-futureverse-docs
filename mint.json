@@ -81,7 +81,7 @@
     {
       "group": "Authentication",
       "pages": [
-        "dev/authentication"
+        "dev/authentication",
         {
           "group": "Getting Started",
           "pages": [
