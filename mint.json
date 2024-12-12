@@ -19,6 +19,12 @@
       "to": "#050505"
     }
   },
+  "sidebar": "card",
+  "search": "side",
+  "feedback": {
+      "thumbsRating": true,
+      "raiseIssue": true
+    }
   "font": {
     "headings": {
       "family": "Objektivmk",
@@ -26,6 +32,9 @@
       "format": "woff",
       "weight": 700
     }
+  },
+  "integrations": {
+    "intercom": "x0kxkkip"
   },
   "topbarCtaButton": {
     "name": "FuturePass Login",
