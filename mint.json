@@ -19,8 +19,11 @@
       "to": "#050505"
     }
   },
-  "sidebar": "card",
-  "search": "side",
+  "sidebar": {
+      "items": "card"
+    },
+  "search": {
+      "location": "side" },
   "feedback": {
       "thumbsRating": true,
       "raiseIssue": true
