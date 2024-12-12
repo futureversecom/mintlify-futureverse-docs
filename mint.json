@@ -69,7 +69,7 @@
       "pages": [
         "dev/overview",
         "dev/guide",
-        "dev/best-practices",
+        "dev/best_practices",
         {
           "group": "Authentication",
           "pages": [
