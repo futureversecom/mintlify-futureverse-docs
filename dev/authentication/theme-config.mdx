@@ -1,0 +1,129 @@
+---
+title: "Theme Config"
+description: "Customisation of the  is achievable through the theme config."
+---
+
+### **Themes**
+
+* **DefaultTheme**: Delivers the classic Futureverse aesthetic, ready to use out of the box.
+
+* **CoreColors**: Includes essential colors, such as black, white, and transparent variants for versatile styling (these cannot be edited).
+
+* **Other Typesafe Theme Types**: Access additional types like ThemeConfig, AuthOption, Colors and Fonts for enhanced customization.
+
+* **Whitelabeling**: Add a modal logo or background image/video to seamlessly integrate the auth UI modal with your personalized brand identity.
+
+```js
+import { type ThemeConfig, DefaultTheme, AuthOption, CoreColors } from '@futureverse/auth-ui';
+```
+
+```js
+export type ThemeConfig = {
+  defaultAuthOption?: AuthOption;
+  colors: Colors;
+  font: Fonts;
+  images?: {
+    background?: string;
+    logo?: string;
+  };
+};
+```
+
+```js
+type AuthOption = 'web3' | 'custodial';
+
+type Colors = {
+  /** Primary */
+  primaryBackground: string;
+  primaryForeground: string;
+  primaryHover: string;
+  primaryActive: string;
+  primaryBackgroundDisabled: string;
+  primaryForegroundDisabled: string;
+
+  /** Secondary */
+  secondaryBackground: string;
+  secondaryForeground: string;
+  secondaryHover: string;
+  secondaryActive: string;
+  secondaryBackgroundDisabled: string;
+  secondaryForegroundDisabled: string;
+
+  /** Border */
+  border: string;
+  borderHover: string;
+  borderActive: string;
+  borderError: string;
+
+  /** Shared Stylings */
+  errorForeground: string;
+  body: string;
+  muted: string;
+  surface: string;
+  page: string;
+};
+
+type Fonts = {
+  fontUrl: string;
+  fontName: string;
+};
+```
+
+### **Overwrite Theming and Font Examples**
+
+* **Color Values**: All color properties must be specified using RGBA values for consistency and transparency control.
+
+* **Font Customization**: You can easily integrate custom fonts by providing the font URL and name.
+
+* **Comprehensive Theming**: The theme object allows you to customize various aspects. You can either create a completely custom theme or selectively override specific elements while inheriting the rest from the default theme.
+
+Example:
+
+```js
+import { type ThemeConfig } from '@futureverse/auth-ui';
+
+const customThemeConfig: ThemeConfig = {
+  defaultAuthOption: 'web3',
+  colors: {
+    primaryBackground: 'rgba(255, 255, 255, 0.1)',
+    primaryForeground: 'rgba(255, 255, 255, 1)',
+    primaryHover: 'rgba(255, 255, 255, 0.2)',
+    primaryActive: 'rgba(133, 133, 133, 1)',
+    primaryBackgroundDisabled: 'rgba(218, 218, 218, 0.2)',
+    primaryForegroundDisabled: 'rgba(165, 163, 164, 1)',
+    secondaryBackground: 'rgba(0, 0, 0, 1)',
+    secondaryForeground: 'rgba(165, 163, 164, 1)',
+    secondaryHover: 'rgba(207, 207, 207, 1)',
+    secondaryActive: 'rgba(207, 207, 207, 1)',
+    secondaryBackgroundDisabled: 'rgba(218, 218, 218, 0.2)',
+    secondaryForegroundDisabled: 'rgba(165, 163, 164, 1)',
+    border: 'rgba(68, 68, 68, 1)',
+    borderHover: 'rgba(255, 255, 255, 1)',
+    borderActive: 'rgba(255, 255, 255, 1)',
+    borderError: 'rgba(171, 21, 57, 1)',
+    errorForeground: 'rgba(171, 21, 57, 1)',
+    body: 'rgba(255, 255, 255, 1)',
+    muted: 'rgba(182, 182, 182, 1)',
+    surface: 'rgba(0, 0, 0, 0.5)',
+    page: 'rgba(24, 24, 24, 1)',
+  },
+  font: {
+    fontUrl: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+    fontName: 'Inter',
+  },
+};
+```
+
+```js
+const customThemeConfig: ThemeConfig = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    muted: 'rgba(1, 1, 1, 1)',
+  },
+};
+```
+
+<Info>
+  All color values only accept **hex codes**.
+</Info>

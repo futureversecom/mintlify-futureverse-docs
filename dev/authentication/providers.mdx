@@ -1,0 +1,64 @@
+---
+title: "Overview"
+description: "Auth React supplies the following providers that equip your application with session-related methods, variable objects, and connection capabilities:"
+---
+
+* [`FutureverseAuthProvider`](/dev/authentication/providers/futureverseauthprovider)
+
+* [`FutureverseWagmiProvider`](/dev/authentication/providers/futureversewagmiprovider)
+
+* [`AuthUiProvider`](/dev/authentication/providers/authuiprovider) (optional for UI customization)
+
+* [`QueryClientProvider`](/dev/authentication/providers/queryclientprovider) (from TanStack Query)
+
+Behind the scenes, the library wraps Futureverse Auth logic and removes complexities, making it easier for your child components to access Hooks exposed by these providers to validate sessions and perform connections and signs.
+
+We recommend you create a dedicated file named `Providers.ts` for your providers.
+
+## Example `Provider.ts`:
+
+After importing and configuring `FutureverseAuthProvider`, `FutureverseWagmiProvider`, `AuthUiProvider`and `QueryClientProvider`, your `Provider.ts` component will look similar to the example below.
+
+```
+import {
+  FutureverseAuthProvider,
+  FutureverseWagmiProvider,
+} from '@futureverse/auth-react';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { State } from 'wagmi';
+import { authClient, getWagmiConfig, queryClient } from './config';
+
+const customThemeConfig: ThemeConfig = {
+  ...DarkTheme,
+  defaultAuthOption: 'web3',
+  images: {
+    logo: '<optional logo svg / image>',
+    backgroundImage: '<optional background image>',
+  },
+};
+
+export default function Providers({
+  children,
+  initialWagmiState,
+}: {
+  children: React.ReactNode;
+  initialWagmiState?: State;
+}) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <FutureverseWagmiProvider
+        getWagmiConfig={getWagmiConfig}
+        initialState={initialWagmiState}
+      >
+        <FutureverseAuthProvider authClient={authClient}>
+          <AuthUiProvider authClient={authClient} themeConfig={customThemeConfig}>
+            {children}
+          </AuthUiProvider>
+        </FutureverseAuthProvider>
+      </FutureverseWagmiProvider>
+    </QueryClientProvider>
+  );
+}
+```
+
+[PreviousQueryClient](/dev/authentication/configuration/queryclient)[NextQueryClientProvider](/dev/authentication/providers/queryclientprovider)

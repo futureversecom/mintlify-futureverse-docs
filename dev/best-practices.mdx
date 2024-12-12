@@ -1,0 +1,25 @@
+---
+title: "Best Practices"
+description: "To ensure a secure, efficient, and seamless user experience, it is essential to follow these best practices when integrating with Auth. These guidelines emphasise using Pass addresses, managing transaction fees, and handling bridging processes effectively."
+mode: wide
+---
+
+#### Default to Pass Address instead of EOAs
+
+It is essential to default to using [Pass addresses ](/dev/glossary)rather than [EOAs](/dev/glossary). Since all assets on the root are owned by the user's Pass address, utilizing Pass addresses ensures a consistent and secure asset management process. It is recommended to configure your experience to interact exclusively with Pass addresses, ensuring the security and integrity of users' assets.
+
+#### Implement fee proxy for transaction fees
+
+Experiences should implement a fee proxy, that allows users to pay transaction fees using their choice of tokens. This enhances user flexibility and convenience.
+
+#### Use gas in Pass Address by default
+
+As root assets are managed through the Pass address, it is recommended that gas fees also be paid from this address. This centralizes the management of transactions and simplifies the process for users.
+
+#### Default Bridging to the Pass Address
+
+All bridging activities should default to the [Pass address](/dev/glossary). For example, when a user transfers an asset from one network to another, the destination should be their Pass address to maintain consistent asset management.
+
+#### Avoid Displaying Custodial and Xaman EOAs in the Interface
+
+Custodial and Xaman EOAs should not be used or visible in the user interface. For example, when displaying wallet information or transaction history, only the Pass address should be shown, hiding any custodial or Xaman EOAs to avoid confusion.

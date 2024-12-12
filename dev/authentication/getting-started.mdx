@@ -1,0 +1,40 @@
+---
+title: Getting Started
+sidebarTitle: "Overview"
+---
+
+## Register your client
+
+Before using Auth React, you will need to register an [OAuth2](https://oauth.net/) client with the Auth Online Identity Provider using the Manage Clients Console:
+
+* **Production:** [https://login.pass.online/manageclients](https://login.pass.online/manageclients)
+
+* **Development / Staging:** [https://login.passonline.cloud/manageclients](https://login.passonline.cloud/manageclients)
+
+To register your client, you will need to provide two arguments:
+
+* **Client Name:** The name of your application (e.g. `futureverse-experience-demo`).
+
+  * Use only alphanumeric characters, `-` and `_` .
+
+<Info>
+  **Note**: The name does not have to be unique; you can re-register using the same name to receive a fresh set of credentials.
+</Info>
+
+* **Redirect URLs:** Specify your application's URL(s) to redirect to after a successful login. Please pay attention to these guidelines:
+
+  * Include the protocol in the URL (use `http` for development and `https` for production).
+
+  * Separate multiple URLs using a semicolon.
+
+  Example:
+
+  ```bash
+  <http://localhost:3000/login>; <http://futureverse.vercel.com/home>; <https://futureverse-experience-demo.staging.com/home>;
+  ```
+
+Once your registration is successful, you will receive a Client ID, Name, and an Access Token. Make sure to save this information. You will need the Client ID and the Redirect URL to instantiate the `FutureverseAuthClient` and configure the providers in your application. Treat them as any other secrets in your application (Do not commit them with your code!).
+
+<Info>
+  **Note**: Client Name and Access Token are used to view and edit this registration; they are not required in the codebase.
+</Info>

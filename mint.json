@@ -1,0 +1,119 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Futureverse",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg",
+    "href": "https://www.futureverse.com/"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0E0E0E",
+    "light": "#aeb7ba",
+    "dark": "#0E0E0E",
+    "background": {
+      "dark": "#050505"
+    },
+    "anchors":{
+      "from": "#aeb7ba",
+      "to": "#050505"
+    }
+  },
+  "font":{
+    "headings": {
+      "family": "Objektivmk",
+      "url": "https://cdn.prod.website-files.com/64b459a54c6aeb0b60898fe2/64b459a54c6aeb0b60898fe7_ObjektivMk1-Bold.woff",
+      "format": "woff",
+      "weight": 700
+    }
+  },
+  "topbarCtaButton": {
+    "name": "FuturePass Login",
+    "url": "https://futurepass.futureverse.app/",
+    "style": "roundedRectangle"
+  },
+  "tabs": [
+    {
+      "name": "Developer Docs",
+      "url": "dev",
+      "version": "Developer Docs"
+    },
+    {
+      "name": "Platform Tools",
+      "url": "dev/platform-tools",
+      "version": "Platform Tools"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "modeToggle": {
+    "default": "dark"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.com/invite/futureverse"
+    }
+  ],
+  "versions": ["Developer Docs" , "Platform Tools"],
+  "navigation": [
+    {
+      "group": "Developer Docs",
+      "version": "Developer Docs",
+      "pages": [
+        "dev/dev",
+        "dev/introduction",
+        "dev/best-practices",
+        {
+          "group": "Authentication",
+          "pages": [
+            "dev/authentication",
+            {
+              "group": "Getting Started",
+              "pages": [
+                "dev/authentication/getting-started",
+                "dev/authentication/getting-started/installation"
+              ]
+            },
+            "dev/authentication/theme-config"
+          ]
+        },
+        "dev/glossary"
+      ]
+    },
+    {
+      "group": "Platform Tools",
+      "version": "Platform Tools",
+      "pages": [
+        "dev/platform-tools/platform-tools",
+        "dev/platform-tools/futurepass",
+        "dev/platform-tools/dot-2.0"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://twitter.com/futureverse",
+    "instagram": "https://www.instagram.com/futureverse/?igshid=MzRlODBiNWFlZA%3D%3D",
+    "youtube": "https://www.youtube.com/channel/UCuhjCqtBKXJU_3ArLzDf0mQ",
+    "discord": "https://discord.com/invite/futureverse",
+    "linkedin": "https://www.linkedin.com/company/futureverseofficial",
+    "github": "https://github.com/futureversecom/"
+  }
+}
