@@ -65,7 +65,7 @@
       "version": "Developer Docs",
       "pages": [
         "dev/overview",
-        "dev/introduction",
+        "dev/guide",
         "dev/best-practices",
         {
           "group": "Authentication",
