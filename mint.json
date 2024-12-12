@@ -20,10 +20,10 @@
     }
   },
   "sidebar": {
-      "items": "card"
+      "items": "border"
     },
   "search": {
-      "location": "side" },
+      "location": "top" },
   "feedback": {
       "thumbsRating": true,
       "raiseIssue": true
