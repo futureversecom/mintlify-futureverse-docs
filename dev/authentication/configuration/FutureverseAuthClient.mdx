@@ -1,0 +1,63 @@
+---
+title: "FutureverseAuthClient"
+description: "Description of your new file."
+---
+
+After installing Auth React and the required peer dependencies, you need to create and export your `FutureverseAuthClient`, `Wagmi`, and `QueryClient` configurations.
+
+We recommend you create a dedicated file for your configurations (e.g., `Config.ts`).
+
+## Example `Config.ts`:[](#example-config.ts)
+
+Here’s an example of how your `Config.ts` file should look:
+
+```typescript config.ts
+import React, { PropsWithChildren } from 'react';
+import { FutureverseAuthClient } from '@futureverse/auth-react/auth';
+import { FutureverseAuthProvider, FutureverseWagmiProvider } from '@futureverse/auth-react';
+import { createWagmiConfig } from '@futureverse/auth-react/wagmi';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { cookieStorage, createStorage } from 'wagmi';
+
+const clientId = '<your-futureverse-client-id>';
+const walletConnectProjectId = '<your-wallet-connect-project-id>';
+const xamanAPIKey = '<your-xaman-application->';
+
+export const authClient = new FutureverseAuthClient({
+  clientId,
+  environment: 'production',
+  redirectUri: '<your-app-redirect-endpoint>',
+});
+const queryClient = new QueryClient();
+
+export const getWagmiConfig = async () => {
+  return createWagmiConfig({
+    walletConnectProjectId,
+    xamanAPIKey,
+    authClient,
+    // Optional if supporting SSR
+    ssr: true,
+    // Optional chains you wish to support
+    chains: [mainnet, sepolia, polygonAmoy],
+    // Optional if supporting SSR
+    storage: createStorage({
+      storage: cookieStorage,
+    }),
+  });
+};
+```
+
+## Configuration Steps
+
+The configuration steps are detailed in the following pages:
+
+1. **Configure** [`FutureverseAuthClient`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/futureverseauthclient):
+   Set up your `FutureverseAuthClient` with your `clientId`, `environment`, and `redirectUri`.
+   Comment
+
+2. **Configure** [`Wagmi`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/wagmi-configuration):
+   Create a Wagmi configuration using `createWagmiConfig`, including wallet providers (e.g., MetaMask, WalletConnect, Xaman).
+   Comment
+
+3. **Configure** [`QueryClient`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/queryclient):
+   Initialize the `QueryClient` for managing asynchronous data using **TanStack Query**.
