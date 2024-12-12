@@ -14,12 +14,12 @@
     "background": {
       "dark": "#050505"
     },
-    "anchors":{
+    "anchors": {
       "from": "#aeb7ba",
       "to": "#050505"
     }
   },
-  "font":{
+  "font": {
     "headings": {
       "family": "Objektivmk",
       "url": "https://cdn.prod.website-files.com/64b459a54c6aeb0b60898fe2/64b459a54c6aeb0b60898fe7_ObjektivMk1-Bold.woff",
@@ -58,7 +58,10 @@
       "url": "https://discord.com/invite/futureverse"
     }
   ],
-  "versions": ["Developer Docs" , "Platform Tools"],
+  "versions": [
+    "Developer Docs",
+    "Platform Tools"
+  ],
   "navigation": [
     {
       "group": "Developer Docs",
