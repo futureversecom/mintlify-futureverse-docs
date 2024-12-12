@@ -67,24 +67,17 @@
       "name": "Community",
       "icon": "discord",
       "url": "https://discord.com/invite/futureverse"
-    },
-    {
-      "name": "Overview",
-      "icon": "discord",
-      "url": "dev"
-    },
-    {
-      "name": "Guide",
-      "icon": "discord",
-      "url": "dev/guide"
-    },
-    {
-      "name": "Best Practices",
-      "icon": "discord",
-      "url": "dev/best_practices"
     }
   ],
   "navigation": [
+    {
+    "group": "Developer Docs 101",
+    "pages": [
+      "dev/overview".
+      "dev/guide",
+      "dev/best_practices"
+    ]
+    },
     {
       "group": "Authentication",
       "pages": [
