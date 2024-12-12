@@ -81,8 +81,8 @@
             {
               "group": "Configuration",
               "pages": [
-                "dev/authentication/configuration.mdx",
-                "dev/authentication/configuration/FutureverseAuthClient.mdx"
+                "dev/authentication/configuration",
+                "dev/authentication/configuration/FutureverseAuthClient"
               ]
             },
             "dev/authentication/theme-config"
