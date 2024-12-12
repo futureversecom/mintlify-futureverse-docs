@@ -82,8 +82,8 @@
               "group": "Configuration",
               "pages": [
                 "dev/authentication/configuration",
-                "dev/authentication/configuration/FutureverseAuthClient"
-                "dev/authentication/configuration/WagmiConfiguration"
+                "dev/authentication/configuration/FutureverseAuthClient",
+                "dev/authentication/configuration/WagmiConfiguration",
                 "dev/authentication/configuration/QueryClient"
               ]
             },
