@@ -78,6 +78,13 @@
                 "dev/authentication/getting-started/installation"
               ]
             },
+            {
+              "group": "Configuration",
+              "pages": [
+                "dev/authentication/configuration.mdx",
+                "dev/authentication/configuration/FutureverseAuthClient.mdx"
+              ]
+            },
             "dev/authentication/theme-config"
           ]
         },
