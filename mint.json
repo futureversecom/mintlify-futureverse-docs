@@ -73,7 +73,7 @@
     {
     "group": "Developer Docs 101",
     "pages": [
-      "dev/overview".
+      "dev/overview",
       "dev/guide",
       "dev/best_practices"
     ]
@@ -81,7 +81,7 @@
     {
       "group": "Authentication",
       "pages": [
-        "dev/authentication",
+        "dev/authentication"
         {
           "group": "Getting Started",
           "pages": [
