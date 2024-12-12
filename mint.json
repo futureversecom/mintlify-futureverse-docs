@@ -20,14 +20,15 @@
     }
   },
   "sidebar": {
-      "items": "border"
-    },
+    "items": "border"
+  },
   "search": {
-      "location": "top" },
+    "location": "top"
+  },
   "feedback": {
-      "thumbsRating": true,
-      "raiseIssue": true
-    },
+    "thumbsRating": true,
+    "raiseIssue": true
+  },
   "font": {
     "headings": {
       "family": "Objektivmk",
@@ -47,12 +48,12 @@
   "tabs": [
     {
       "name": "Developer Docs",
-      "url": "dev"      
+      "url": "dev"
     },
     {
       "name": "Platform Tools",
       "url": "dev/platform-tools"
-   },
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -81,34 +82,30 @@
       "name": "Best Practices",
       "icon": "discord",
       "url": "dev/best_practices"
-    },
-    
+    }
   ],
   "navigation": [
     {
-          "group": "Authentication",
+      "group": "Authentication",
+      "pages": [
+        "dev/authentication",
+        {
+          "group": "Getting Started",
           "pages": [
-            "dev/authentication",
-            {
-              "group": "Getting Started",
-              "pages": [
-                "dev/authentication/getting-started",
-                "dev/authentication/getting-started/installation"
-              ]
-            }]},
-            {
-              "group": "Configuration",
-              "pages": [
-                "dev/authentication/configuration",
-                "dev/authentication/configuration/FutureverseAuthClient",
-                "dev/authentication/configuration/WagmiConfiguration",
-                "dev/authentication/configuration/QueryClient"
-              ]
-            },
-            "dev/authentication/theme-config"
+            "dev/authentication/getting-started",
+            "dev/authentication/getting-started/installation"
           ]
         },
-        "dev/glossary"
+        "dev/authentication/theme-config"
+      ]
+    },
+    {
+      "group": "Configuration",
+      "pages": [
+        "dev/authentication/configuration",
+        "dev/authentication/configuration/FutureverseAuthClient",
+        "dev/authentication/configuration/WagmiConfiguration",
+        "dev/authentication/configuration/QueryClient"
       ]
     },
     {
