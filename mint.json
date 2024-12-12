@@ -35,14 +35,12 @@
   "tabs": [
     {
       "name": "Developer Docs",
-      "url": "dev",
-      "version": "Developer Docs"
+      "url": "dev"      
     },
     {
       "name": "Platform Tools",
-      "url": "dev/platform-tools",
-      "version": "Platform Tools"
-    },
+      "url": "dev/platform-tools"
+   },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -58,14 +56,9 @@
       "url": "https://discord.com/invite/futureverse"
     }
   ],
-  "versions": [
-    "Developer Docs",
-    "Platform Tools"
-  ],
   "navigation": [
     {
       "group": "Developer Docs",
-      "version": "Developer Docs",
       "pages": [
         "dev/overview",
         "dev/guide",
@@ -98,7 +91,6 @@
     },
     {
       "group": "Platform Tools",
-      "version": "Platform Tools",
       "pages": [
         "dev/platform-tools/platform-tools",
         "dev/platform-tools/futurepass",
