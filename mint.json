@@ -66,16 +66,26 @@
       "name": "Community",
       "icon": "discord",
       "url": "https://discord.com/invite/futureverse"
-    }
+    },
+    {
+      "name": "Overview",
+      "icon": "discord",
+      "url": "dev/overview"
+    },
+    {
+      "name": "Guide",
+      "icon": "discord",
+      "url": "dev/guide"
+    },
+    {
+      "name": "Best Practices",
+      "icon": "discord",
+      "url": "dev/best_practices"
+    },
+    
   ],
   "navigation": [
     {
-      "group": "Developer Docs",
-      "pages": [
-        "dev/overview",
-        "dev/guide",
-        "dev/best_practices",
-        {
           "group": "Authentication",
           "pages": [
             "dev/authentication",
@@ -85,7 +95,7 @@
                 "dev/authentication/getting-started",
                 "dev/authentication/getting-started/installation"
               ]
-            },
+            }]},
             {
               "group": "Configuration",
               "pages": [
