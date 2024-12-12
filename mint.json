@@ -64,7 +64,7 @@
       "group": "Developer Docs",
       "version": "Developer Docs",
       "pages": [
-        "dev/dev",
+        "dev/overview",
         "dev/introduction",
         "dev/best-practices",
         {
