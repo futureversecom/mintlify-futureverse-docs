@@ -2,61 +2,45 @@
 title: "FutureverseAuthClient"
 ---
 
-After installing Auth React and the required peer dependencies, you need to create and export your `FutureverseAuthClient`, `Wagmi`, and `QueryClient` configurations.
+To start using Auth React in your application, first import `FutureverseAuthClient` and configure it with the required parameters: `clientId`, `environment`, and `redirectUri`. These settings establish your authentication client (authClient) and determine how users interact with authentication. A custom IDP URL can be set to overwrite the default pass online environments.
 
-We recommend you create a dedicated file for your configurations (e.g., `Config.ts`).
+Here’s an example:
 
-## Example `Config.ts`:[](#example-config.ts)
-
-Here’s an example of how your `Config.ts` file should look:
-
-```typescript config.ts
-import React, { PropsWithChildren } from 'react';
+```typescript
 import { FutureverseAuthClient } from '@futureverse/auth-react/auth';
-import { FutureverseAuthProvider, FutureverseWagmiProvider } from '@futureverse/auth-react';
-import { createWagmiConfig } from '@futureverse/auth-react/wagmi';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { cookieStorage, createStorage } from 'wagmi';
 
-const clientId = '<your-futureverse-client-id>';
-const walletConnectProjectId = '<your-wallet-connect-project-id>';
-const xamanAPIKey = '<your-xaman-application->';
-
-export const authClient = new FutureverseAuthClient({
+const authClient = new FutureverseAuthClient({
   clientId,
-  environment: 'production',
-  redirectUri: '<your-app-redirect-endpoint>',
+  environment: 'staging',
+  redirectUri: 'http://localhost:3000/fp',
+  signInFlow: 'redirect',
+  /** Custom IDP url goes under authority */
+  authority: 'https://jen.passonline.cloud'
 });
-const queryClient = new QueryClient();
-
-export const getWagmiConfig = async () => {
-  return createWagmiConfig({
-    walletConnectProjectId,
-    xamanAPIKey,
-    authClient,
-    // Optional if supporting SSR
-    ssr: true,
-    // Optional chains you wish to support
-    chains: [mainnet, sepolia, polygonAmoy],
-    // Optional if supporting SSR
-    storage: createStorage({
-      storage: cookieStorage,
-    }),
-  });
-};
 ```
 
-## Configuration Steps
+<Note>
+  Use the same client ID and redirect URI for the environment you configured your client in. `clientId` and `redirectUri` are required parameters.
+</Note>
 
-The configuration steps are detailed in the following pages:
+### Required parameters:
 
-1. **Configure** [`FutureverseAuthClient`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/futureverseauthclient):
-   Set up your `FutureverseAuthClient` with your `clientId`, `environment`, and `redirectUri`.
-   Comment
+* `clientId`: Unique ID obtained by[ registering your client](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/getting-started#register-your-client).
 
-2. **Configure** [`Wagmi`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/wagmi-configuration):
-   Create a Wagmi configuration using `createWagmiConfig`, including wallet providers (e.g., MetaMask, WalletConnect, Xaman).
-   Comment
+* `environment`: The deployment environment (e.g., 'development', 'staging', 'production').
 
-3. **Configure** [`QueryClient`](/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/configuration/queryclient):
-   Initialize the `QueryClient` for managing asynchronous data using **TanStack Query**.
+* `redirectUri`: The URL where users are redirected post-authentication. Enter the redirect URL used when registering your client.
+
+### Optional parameters:
+
+* `responseType`: Choose between `code` or `id_token` string.
+
+* `userStore: `Define a user storage option.
+
+* `clientSecret: `Client-specific secret key.
+
+* `signInFlow`: `redirect` or `popup` string. Set to `popup` when using the Auth UI modal (`redirect` is the default).
+
+<Note>
+  Developers who opt to use the [Auth UI](https://www.npmjs.com/package/@futureverse/auth-ui) plug-and-play modal, supplied by [AuthUiProvider](https://app.gitbook.com/o/-MdydbpBeh4lPp-v7Xwz/s/efVNmeWS2g2tg0iUr78C/authentication/providers/authuiprovider), must include a `signInFlow` parameter with `'popup'`as its value.&#x20;
+</Note>

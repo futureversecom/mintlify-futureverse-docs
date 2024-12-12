@@ -1,0 +1,18 @@
+---
+title: "QueryClient"
+description: "Description of your new file."
+---
+
+Auth React and Wagmi require [TanStack Query](https://tanstack.com/query/latest), added during the Auth React [installation](https://docs.futureverse.com/dev/authentication/getting-started/installation). The library enables fetching, caching, synchronizing, and updating asynchronous data in your React application.
+
+You need to import and instantiate `QueryClient`. The initialized variable `queryClient` will be sent as a property of [`QueryClientProvider`](https://docs.futureverse.com/dev/authentication/providers/queryclientprovider) to the children's application.&#x20;
+
+### Example:&#x20;
+
+```typescript
+import { QueryClient } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+```
+
+For more information on [QueryClient](https://tanstack.com/query/latest/docs/reference/QueryClient) and [QueryClientProvider](https://tanstack.com/query/latest/docs/framework/react/reference/QueryClientProvider#queryclientprovider), refer to the [TanStack Query Documentation](https://tanstack.com/query/latest/docs/framework/react/overview).
