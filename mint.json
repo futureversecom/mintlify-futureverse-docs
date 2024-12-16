@@ -36,7 +36,6 @@
    "raiseIssue": true // option to raise an issue on Github
 
  },
-
 }
   "font": {
     "headings": {
