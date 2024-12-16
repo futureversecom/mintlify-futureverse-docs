@@ -25,10 +25,19 @@
   "search": {
     "location": "top"
   },
-  "feedback": {
-    "thumbsRating": true,
-    "raiseIssue": true
-  },
+  {
+
+ "feedback": {
+
+   "thumbsRating": true, // option to thumbs up/down
+
+   "suggestEdit": true, // option to create a PR on the Github repo
+
+   "raiseIssue": true // option to raise an issue on Github
+
+ }
+
+}
   "font": {
     "headings": {
       "family": "Objektivmk",
