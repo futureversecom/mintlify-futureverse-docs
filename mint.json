@@ -1,140 +1,136 @@
 {
-    "$schema": "https://mintlify.com/schema.json",
-    "name": "Futureverse",
-    "logo": {
-      "dark": "/logo/dark.svg",
-      "light": "/logo/light.svg",
-      "href": "https://www.futureverse.com/"
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Futureverse",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg",
+    "href": "https://www.futureverse.com/"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0E0E0E",
+    "light": "#aeb7ba",
+    "dark": "#0E0E0E",
+    "background": {
+      "dark": "#050505"
     },
-    "favicon": "/favicon.png",
-    "colors": {
-      "primary": "#0E0E0E",
-      "light": "#aeb7ba",
-      "dark": "#0E0E0E",
-      "background": {
-        "dark": "#050505"
-      },
-      "anchors": {
-        "from": "#aeb7ba",
-        "to": "#050505"
-      }
+    "anchors": {
+      "from": "#aeb7ba",
+      "to": "#050505"
+    }
+  },
+  "sidebar": {
+    "items": "border"
+  },
+  "search": {
+    "location": "top"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
+  },
+  "font": {
+    "headings": {
+      "family": "Objektivmk",
+      "url": "https://cdn.prod.website-files.com/64b459a54c6aeb0b60898fe2/64b459a54c6aeb0b60898fe7_ObjektivMk1-Bold.woff",
+      "format": "woff",
+      "weight": 700
+    }
+  },
+  "integrations": {
+    "intercom": "x0kxkkip"
+  },
+  "topbarCtaButton": {
+    "name": "FuturePass Login",
+    "url": "https://futurepass.futureverse.app/",
+    "style": "roundedRectangle"
+  },
+  "tabs": [
+    {
+      "name": "Developer Docs",
+      "url": "dev"
     },
-    "sidebar": {
-      "items": "border"
+    {
+      "name": "Platform Tools",
+      "url": "dev/platform-tools"
     },
-    "search": {
-      "location": "top"
-    },
-   "feedback": {
-  
-     "thumbsRating": true, // option to thumbs up/down
-  
-     "suggestEdit": true, // option to create a PR on the Github repo
-  
-     "raiseIssue": true // option to raise an issue on Github
-  
-   }, 
-    "font": {
-      "headings": {
-        "family": "Objektivmk",
-        "url": "https://cdn.prod.website-files.com/64b459a54c6aeb0b60898fe2/64b459a54c6aeb0b60898fe7_ObjektivMk1-Bold.woff",
-        "format": "woff",
-        "weight": 700
-      }
-    },
-    "integrations": {
-      "intercom": "x0kxkkip"
-    },
-    "topbarCtaButton": {
-      "name": "FuturePass Login",
-      "url": "https://futurepass.futureverse.app/",
-      "style": "roundedRectangle"
-    },
-    "tabs": [
-      {
-        "name": "Developer Docs",
-        "url": "dev"
-      },
-      {
-        "name": "Platform Tools",
-        "url": "dev/platform-tools"
-      },
-      {
-        "name": "API Reference",
-        "url": "api-reference"
-      }
-    ],
-    "modeToggle": {
-      "default": "dark"
-    },
-    "anchors": [
-      {
-        "name": "Community",
-        "icon": "discord",
-        "url": "https://discord.com/invite/futureverse"
-      }
-    ],
-    "navigation": [
-      {
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "modeToggle": {
+    "default": "dark"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.com/invite/futureverse"
+    }
+  ],
+  "navigation": [
+    {
       "group": "Developer Docs 101",
       "pages": [
         "dev/overview",
         "dev/guide",
         "dev/best_practices"
       ]
-      },
-      {
-        "group": "Authentication",
-        "pages": [
-          "dev/authentication",
-          {
-            "group": "Getting Started",
-            "pages": [
-              "dev/authentication/getting-started",
-              "dev/authentication/getting-started/installation"
-            ]
-          },
-          "dev/authentication/theme-config"
-        ]
-      },
-      {
-        "group": "Configuration",
-        "pages": [
-          "dev/authentication/configuration",
-          "dev/authentication/configuration/FutureverseAuthClient",
-          "dev/authentication/configuration/WagmiConfiguration",
-          "dev/authentication/configuration/QueryClient"
-        ]
-      },
-      {
-        "group": "Platform Tools",
-        "pages": [
-          "dev/platform-tools/platform-tools",
-          "dev/platform-tools/futurepass",
-          "dev/platform-tools/dot-2.0"
-        ]
-      },
-      {
-        "group": "API Documentation",
-        "pages": [
-          "api-reference/introduction"
-        ]
-      },
-      {
-        "group": "Endpoint Examples",
-        "pages": [
-          "api-reference/endpoint/get",
-          "api-reference/endpoint/create",
-          "api-reference/endpoint/delete"
-        ]
-      }
-    ],
-    "footerSocials": {
-      "x": "https://twitter.com/futureverse",
-      "instagram": "https://www.instagram.com/futureverse/?igshid=MzRlODBiNWFlZA%3D%3D",
-      "youtube": "https://www.youtube.com/channel/UCuhjCqtBKXJU_3ArLzDf0mQ",
-      "discord": "https://discord.com/invite/futureverse",
-      "linkedin": "https://www.linkedin.com/company/futureverseofficial",
-      "github": "https://github.com/futureversecom/"
+    },
+    {
+      "group": "Authentication",
+      "pages": [
+        "dev/authentication",
+        {
+          "group": "Getting Started",
+          "pages": [
+            "dev/authentication/getting-started",
+            "dev/authentication/getting-started/installation"
+          ]
+        },
+        "dev/authentication/theme-config"
+      ]
+    },
+    {
+      "group": "Configuration",
+      "pages": [
+        "dev/authentication/configuration",
+        "dev/authentication/configuration/FutureverseAuthClient",
+        "dev/authentication/configuration/WagmiConfiguration",
+        "dev/authentication/configuration/QueryClient"
+      ]
+    },
+    {
+      "group": "Platform Tools",
+      "pages": [
+        "dev/platform-tools/platform-tools",
+        "dev/platform-tools/futurepass",
+        "dev/platform-tools/dot-2.0"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
+      ]
     }
+  ],
+  "footerSocials": {
+    "x": "https://twitter.com/futureverse",
+    "instagram": "https://www.instagram.com/futureverse/?igshid=MzRlODBiNWFlZA%3D%3D",
+    "youtube": "https://www.youtube.com/channel/UCuhjCqtBKXJU_3ArLzDf0mQ",
+    "discord": "https://discord.com/invite/futureverse",
+    "linkedin": "https://www.linkedin.com/company/futureverseofficial",
+    "github": "https://github.com/futureversecom/"
   }
+}
