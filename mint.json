@@ -53,11 +53,11 @@
     },
     {
       "name": "Platform Tools",
-      "url": "dev/platform-tools"
+      "url": "platform-tools"
     },
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api"
     }
   ],
   "modeToggle": {
@@ -76,7 +76,8 @@
       "pages": [
         "dev/overview",
         "dev/guide",
-        "dev/best_practices"
+        "dev/best_practices",
+        "dev/glossary"
       ]
     },
     {
@@ -86,42 +87,72 @@
         {
           "group": "Getting Started",
           "pages": [
-            "dev/authentication/getting-started",
+            "dev/authentication/register-client",
             "dev/authentication/getting-started/installation"
           ]
         },
-        "dev/authentication/theme-config"
+        {
+          "group": "Configuration",
+          "pages": [
+            "dev/authentication/configuration",
+            "dev/authentication/configuration/FutureverseAuthClient",
+            "dev/authentication/configuration/WagmiConfiguration",
+            "dev/authentication/configuration/QueryClient"
+          ]
+        },
+        {
+          "group": "Providers",
+          "pages": [
+            "dev/authentication/providers",
+            "dev/authentication/providers/query-client-provider",
+            "dev/authentication/providers/futureverse-wagmi-provider",
+            "dev/authentication/providers/futureverse-auth-provider",
+            "dev/authentication/providers/auth-ui-provider",
+            "dev/authentication/providers/auth-theme-provider"
+          ]
+        },
+        "dev/authentication/theme-config",
+        {
+          "group": "Hooks",
+          "pages": [
+            "dev/authentication/hooks",
+            "dev/authentication/hooks/useAuthUi",
+            "dev/authentication/hooks/useAuth",
+            "dev/authentication/hooks/useConnector",
+            "dev/authentication/hooks/useFutureverseSigner"
+          ]
+        },
+        "dev/authentication/localisation"
       ]
     },
     {
-      "group": "Configuration",
+      "group": "Transactions",
       "pages": [
-        "dev/authentication/configuration",
-        "dev/authentication/configuration/FutureverseAuthClient",
-        "dev/authentication/configuration/WagmiConfiguration",
-        "dev/authentication/configuration/QueryClient"
+        "dev/transactions"            
       ]
     },
     {
       "group": "Platform Tools",
       "pages": [
-        "dev/platform-tools/platform-tools",
-        "dev/platform-tools/futurepass",
-        "dev/platform-tools/dot-2.0"
+        "platform-tools/platform-tools",
+        "platform-tools/futurepass",
+        "platform-tools/dot-2.0",
+        "platform-tools/swappables-engine",
+        "platform-tools/altered-state-api"
       ]
     },
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api/introduction"
       ]
     },
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api/endpoint/get",
+        "api/endpoint/create",
+        "api/endpoint/delete"
       ]
     }
   ],

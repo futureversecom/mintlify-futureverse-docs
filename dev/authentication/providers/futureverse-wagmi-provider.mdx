@@ -1,0 +1,96 @@
+---
+title: "FutureverseWagmiProvider"
+---
+
+`FutureverseWagmiProvider` enables your application to connect with Wagmi's default Ethereum wallets, including [Coinbase Wallet](https://github.com/coinbase/coinbase-wallet-sdk), [MetaMask](https://github.com/MetaMask/metamask-sdk), [WalletConnect](https://walletconnect.com/), and the custom-built XRP wallet, [Xaman](https://xaman.app/). It supports any chain compatible with Wagmi such as Mainnet, Root, Sepolia, polygonAmoy, and Porcini. `FutureverseWagmiProvider` includes the following properties:
+
+-   [`walletConnectProjectId`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#walletconnectprojectid)
+    
+-   [`xamanApiKey`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#xamanapikey)
+    
+-   [`xamanOnQRCode`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#xamanonqrcode)
+    
+-   [`xamanOnSigned`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#xamanonsigned)
+    
+-   [`authClient`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#authclient)
+    
+-   [`ssr`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#ssr)
+    
+-   [`storage`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#storage)
+    
+-   [`flow`](https://docs.futureverse.com/dev/authentication/providers/futureversewagmiprovider#flow)
+    
+
+The code below shows the hierarchical sequence of providers starting with `QueryClientProvider` , which wraps `FutureverseWagmiProvider` and ending with `FutureverseAuthProvider`, which wraps the children.
+
+`FutureverseWagmiProvider` passes the `getWagmiConfig` from the [`Config.ts`](https://docs.futureverse.com/dev/authentication/configuration) file and an `initialState` for Wagmi as properties to the children.
+
+Example:
+
+``` typescript
+
+    import {
+      FutureverseAuthProvider,
+      FutureverseWagmiProvider,
+    } from '@futureverse/auth-react';
+    import { QueryClientProvider } from '@tanstack/react-query';
+    import { State } from 'wagmi';
+    import { authClient, getWagmiConfig, queryClient } from './config';
+    
+    export default function Providers({
+      children,
+      initialWagmiState,
+    }: {
+      children: React.ReactNode;
+      initialWagmiState?: State;
+    }) {
+      return (
+        <QueryClientProvider client={queryClient}>
+          <FutureverseWagmiProvider
+            getWagmiConfig={getWagmiConfig}
+            initialState={initialWagmiState}
+          >
+            <FutureverseAuthProvider authClient={authClient}>
+                {children}
+            </FutureverseAuthProvider>
+          </FutureverseWagmiProvider>
+        </QueryClientProvider>
+      );
+    }
+
+```
+<br />
+## FutureverseWagmiProvider properties
+
+#### `walletConnectProjectId`
+
+Optional property. It’s obtained from [WalletConnect Cloud Dashboard](https://cloud.reown.com/sign-in). For more information, see [WalletConnect documentation](https://docs.walletconnect.com/cloud/explorer#setting-up-a-new-project).
+
+#### `xamanApiKey`
+
+Optional property. It is an ApiKey obtained from Xaman. For more information, see [Xumm documentation](https://docs.xumm.dev/).
+
+#### `xamanOnQRCode`
+
+Optional property. It is a callback function that is fired with the Xaman App QR Code, which is displayed when a message or signature requires signing.
+
+#### `xamanOnSigned`
+
+Optional property. Is a callback function that is fired when the Xaman message/transaction is signed in the Xaman app.
+
+####  `authClient`
+
+Required property. Initialization of `FutureverseAuthClient`.
+
+#### `ssr`
+
+Optional property. Boolean used to manage Server Side Rendering in Next.js applications.
+
+#### `storage`
+
+Optional property. To define the Wagmi storage option you want to use in your application (e.g.: local storage, cookies, etc). Defaults to local storage and also enables you to create custom storage between sessions. Refer to the Wagmi documentation for more information on [storage](https://wagmi.sh/core/api/createConfig#storage).
+
+#### `flow`
+
+Optional property. Sets the flow you want: `popup` or `redirect`. It defaults to `redirect`.
+

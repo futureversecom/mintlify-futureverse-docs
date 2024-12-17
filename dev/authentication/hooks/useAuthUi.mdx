@@ -1,0 +1,75 @@
+---
+title: "useAuthUi"
+---
+
+`useAuthUi()`allows you to control the display of the Auth UI modal within the [AuthUiProvider](https://docs.futureverse.com/dev/authentication/providers/authuiprovider). This is the recommended way to handle sign-in to Auth.
+
+The hook exposes the following methods and variables to manage the modal's behavior.
+
+``` typescript Page.tsx
+const { openLogin, closeLogin, isLoginOpen } = useAuthUi();
+```
+
+-   [`openLogin()`](https://docs.futureverse.com/dev/authentication/hooks/useauthui#openlogin)
+    
+-   [`closeLogin()`](https://docs.futureverse.com/dev/authentication/hooks/useauthui#closelogin)
+    
+-   [`isLoginOpen`](https://docs.futureverse.com/dev/authentication/hooks/useauthui#isloginopen)
+    
+
+## UseAuthUi Methods
+
+
+### `openLogin()`
+
+Method that presents the modal to connect with the sign-in options provided by this library.
+
+#### Example:
+
+``` typescript
+const { openLogin } = useAuthUi();
+...
+
+return (
+  <div className={styles.page}>
+  ...
+  // Your UI logic goes here		
+    {!userSession && (
+      <button
+        className="custom-button"
+        onClick={() => openLogin()}
+      >
+        Sign In
+      </button>
+   )}
+  ...
+ );
+ ```
+
+###  `closeLogin()`
+
+Method to close the modal. It provides a pragmatic way for developers to implement complementary logic to close the modal in their applications. When the login process is completed, this method is automatically called and sets `isLoginOpen` to `false`.
+
+### `isLoginOpen`
+
+Boolean that can be used to validate conditionals and/or manage other UI components if the modal is open or closed. It turns `true` when the modal is open and `false` when the Modal closes.
+
+#### Example:
+
+``` typescript
+const { isLoginOpen } = useAuthUi();
+...
+
+if (isLoginOpen){
+// Your validation logic goes here
+}
+
+...
+
+{ isLoginOpen (
+// Your conditional UI logic goes here
+)
+```
+
+
+

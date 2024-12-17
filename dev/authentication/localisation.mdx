@@ -1,0 +1,27 @@
+---
+title: "Localisation"
+---
+
+We offer an out of the box built-in translations without any configurations required. By default, we support the `en`locale for English language users. If available, we will detect your user's [language](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) and choose the applicable locale translations. Developers are always able to override the default language and have their own method of providing a locale and a suitable fallback.
+
+To specify a language, simply add `locale="ca"` as a prop to your `AuthUiProvider`.
+
+``` typescript
+import { AuthUiProvider } from '@futureverse/auth-ui';
+
+export default function App() {
+  return <AuthUiProvider locale="ca">{/* Your App */}</AuthUiProvider>;
+}
+```
+
+<Info>If a passed in locale is not supported, then the default fallback language is English.</Info>
+
+## Supported Languages
+
+| Language | Locale  | Shortform |
+|--------- | ------  | --------- |
+| English  | `en`    | `en`      |
+| Español  | `es-ES` | `es`      |
+| Català   | `ca-ES` | `ca`      |
+
+

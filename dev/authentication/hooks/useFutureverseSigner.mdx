@@ -1,0 +1,66 @@
+---
+title: "useFutureverseSigner"
+---
+
+`useFutureverseSigner()` - Initializes the signer in your application, enabling functionalities such as signing messages, transactions, and extrinsics. This is useful for Web3 applications that require authentication or transaction signing.
+
+## Examples:
+
+### Importing and initializing the signer:
+``` typescript
+import { useFutureverseSigner } from '@futureverse/auth-react';
+
+...
+const { signer } = useFutureverseSigner();
+```
+
+### Signing a message:
+You can use the signer to sign a simple message, as shown in the following example:
+
+``` typescript
+import { useCallback } from 'react';
+import { useFutureverseSigner } from './useFutureverseSigner';
+
+function MessageSignerDemo() {
+  const { signer } = useFutureverseSigner();
+
+  const signExtrinsic = useCallback(async () => {
+    if (!signer) return;
+    const message = 'message to sign';
+    return await signer.signMessage(message);
+  }, [signer]);
+
+  // Your UI code to call signExtrinsic
+  return <></>;
+}
+```
+
+### Signing a Root Network extrinsic:
+This example demonstrates how to use the signer for signing a TRN extrinsic, such as minting an NFT:
+
+``` typescript
+import { useFutureverse, useTrnApi } from '@futureverse/react';
+import { useCallback } from 'react';
+import { useFutureverseSigner } from './useFutureverseSigner';
+
+function ExtrinsicSignerDemo() {
+  const { userSession } = useFutureverse();
+  const { trnApi } = useTrnApi();
+  const { signer } = useFutureverseSigner();
+
+  const signExtrinsic = useCallback(async () => {
+    if (!trnApi || !signer || !userSession) {
+      return;
+    }
+    const collectionId = '<your collection id>';
+    const numberOfTokens = 1; // How many tokens to mint
+    const address = 'FuturePass or address to mint to';
+    const extrinsic = trnApi.tx.nft.mint(collectionId, numberOfTokens, address);
+    return await signer.signExtrinsic(trnApi, extrinsic, userSession.eoa);
+  }, [signer]);
+
+  // Your UI code to call signExtrinsic
+  return <></>;
+}
+```
+

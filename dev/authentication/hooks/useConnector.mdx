@@ -1,0 +1,197 @@
+---
+title: "useConnector"
+---
+
+The `useConnector()` hook provides variables and methods to simplify handling connections with both custodial clients and wallets. It offers the following methods and variables:
+
+-   [`connect()`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connect)
+    
+-   [`connectAndSignIn()`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connectandsignin)
+    
+-   [`disconnect()`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#disconnect)
+    
+-   [`isConnected`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#isconnected)
+    
+-   [`connector`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connector)
+    
+-   [`isConnecting`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#isconnecting)
+    
+-   [`connectors`](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connectors)
+
+## UseConnector methods
+
+### `connect()`
+
+This method connects accounts using custodial clients (e.g., email, Google, Facebook, TikTok, and X ) and wallets (MetaMask, WalletConnect, Coinbase Wallet, and Xaman). It required one parameter:
+
+-   `connector.id`: ID of the [connector](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connector).
+    
+#### Example:
+
+``` typescript
+import { useConnector } from '@futureverse/auth-react';
+...
+
+const { connect } = useConnector();
+...
+// Connecting Custodial clients
+connect('futureverseCustodialEmail');
+connect('futureverseCustodialGoogle');
+connect('futureverseCustodialFacebook');
+connect('futureverseCustodialX');
+connect('futureverseCustodialTikTok');
+
+// Connecting Web3
+connect('walletConnect');
+connect('metaMask');
+connect('coinbaseWallet');
+connect('xaman');
+```
+
+### `connectAndSignIn()`
+
+The method attempts to connect a wallet client and directly sign into Auth. It accepts two parameters:
+
+-   `connector.id`: ID of the [connector](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connector).
+    
+-   `flow`: Flow is an optional parameter and it can be `redirect` or `popup`. It defaults to `redirect`.
+    
+
+#### Example:
+
+``` typescript
+
+    {connectors.map(connector => (
+    	<button
+    		key={connector.id}
+    		onClick={() =>
+    			connectAndSignIn(connector.id as ConnectorId, 'popup')
+    		}
+    	>
+    		Connect {connector.name}
+    	</button>
+    ))}
+ ```
+
+### `disconnect()`
+
+This method disconnects accounts from custodial clients and wallets. It accepts one optional parameter.
+
+-   `connector.id`: ID of the [connector](https://docs.futureverse.com/dev/authentication/hooks/useconnector#connector).
+    
+
+#### Example:
+
+``` typescript
+
+    if (connector?.id) {
+    				disconnect();
+    		}
+```
+
+### `isConnected`
+
+Boolean to perform conditional validations for connections.
+
+#### Example:
+
+``` typescript
+    {isConnected && (
+    	<button
+    		onClick={() => {
+    			if (connector?.id) {
+    				disconnect();
+    			}
+    		}}
+    	>
+    		Disconnect
+    	</button>
+    )}
+```
+
+### `connector`
+
+Object containing data of the connector used for the connection.
+
+#### Example:
+
+``` typescript
+
+    {connectors.map((connector) => (
+    	<button
+    		key={connector.id}
+    		onClick={() =>
+    			connectAndSignIn(connector.id as ConnectorId, 'popup')
+    		}
+    	>
+    		{connector.icon && (
+    			<img src={connector.icon} width={20} height={20} />
+    		)}
+    		Connect {connector.name}
+    	</button>
+    ))}
+```
+
+### `isConnecting`
+
+A boolean value indicating whether the connection process is still ongoing (`true` if connecting, `false` when the connection is complete). This is useful for managing UI states.
+
+``` typescript
+    
+    return (
+    	{isConnecting ? (
+    		<Spinner />
+    	):(
+    		<>
+    			// Your UI, when the connection is complete goes here
+    		</>
+    	)}
+    );
+```
+
+### `connectors`
+
+Array of available connectors for both wallet providers and custodial clients supported by Pass:
+
+<AccordionGroup>
+    <Accordion
+        title="Custodial Clients"
+    >
+    -   Email
+    -   Google
+    -   Facebook
+    -   X (former Twitter)
+    -   TikTok
+        
+    </Accordion>
+    <Accordion
+        title="Wallets"
+    > 
+    -   MetaMask
+    -   WalletConnect
+    -   Coinbase Wallet
+    -   Xaman
+    </Accordion>
+</AccordionGroup>
+    
+
+#### Example:
+
+``` typescript
+
+    {connectors.map((connector) => (
+    	<button
+    		key={connector.id}
+    		onClick={() =>
+    			connectAndSignIn(connector.id as ConnectorId, 'popup')
+    		}
+    	>
+    		{connector.icon && (
+    			<img src={connector.icon} width={20} height={20} />
+    		)}
+    		Connect {connector.name}
+    	</button>
+    ))}
+```
+
+

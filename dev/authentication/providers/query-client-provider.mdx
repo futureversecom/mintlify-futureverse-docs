@@ -1,0 +1,27 @@
+---
+title: "QueryClientProvider"
+---
+
+Before starting using Auth React providers, you need to import `QueryClientProvider`. The provider is supplied from [TanStack Query](https://tanstack.com/query/latest), added during the Auth React [installation](/dev/authentication/getting-started/installation), to enable fetching, caching, synchronizing, and updating asynchronous data in your React application. 
+
+You also need to import `QueryClient` from your `Config.ts` file and Auth it as a property of `QueryClientProvider`. 
+
+`QueryClientProvider` must be above the providers that Auth React supplies.
+
+## Example
+
+``` typescript
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './config';
+...
+
+export default function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <QueryClientProvider client={queryClient}>
+	/* Auth React providers go here */
+    </QueryClientProvider>
+  );
+}
+```
+
+<Warning>Check [TanStack Query Docs](https://tanstack.com/query/latest/docs/framework/react/overview) for more information on [QueryClient](https://tanstack.com/query/latest/docs/reference/QueryClient) and [QueryClientProvider](https://tanstack.com/query/latest/docs/framework/react/reference/QueryClientProvider#queryclientprovider).</Warning>

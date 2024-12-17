@@ -1,0 +1,59 @@
+---
+title: "AuthUiProvider"
+---
+
+Futureverse [Auth UI](https://www.npmjs.com/package/@futureverse/auth-ui) allows developers to use an optional ready-to-use UI solution with a handy modal that includes all the prebuilt functionalities for login/signup options. It also allows complete customization to meet diverse application needs.
+
+### Features
+
+-   Plug-and-play component
+    
+-   Customizable Theme
+    
+-   In-built localisation
+    
+
+### Plug and Play Modal
+
+Developers who opt to use the plug-and-play modal will need to import, set up, and wrap their children's components with `FutureverseAuthUiProvider`. It enables the Auth UI sign-in model to be shown. The modal exposes all the Web3 / Custodial Web2 options and handles connecting.
+
+#### Example:
+
+``` typescript
+import { AuthUiProvider, type ThemeConfig } from '@futureverse/auth-ui';
+
+// Theme customized example
+const customThemeConfig: ThemeConfig = {
+  ...DefaultTheme,
+  defaultAuthOption: 'web3',
+  images: {
+    logo: '<optional logo svg / image>',
+    background: '<optional background image>',
+  },
+};
+
+...
+    <AuthUiProvider authClient={authClient} themeConfig={customThemeConfig}>
+      {children}
+    </AuthUiProvider>
+...
+```
+<Info>Customisation of the Auth UI is achievable through the [Theme Config](https://docs.futureverse.com/dev/authentication/theme-config)[.](https://docs.futureverse.com/dev/authentication/theme-config)</Info>
+
+### `signInFlow` in `authClient`
+
+Developers who opt to use the Auth UI plug-and-play modal also must update the `authClient` configuration, which was previously shown in the [FutureverseAuthClient](https://docs.futureverse.com/dev/authentication/configuration/futureverseauthclient) section. The `authClient` must include a `signInFlow` parameter and `'popup'` option as its value.
+
+#### Example:
+
+``` typescript
+export const authClient = new FutureverseAuthClient({
+  clientId,
+  environment: 'staging',
+  redirectUri: 'http://localhost:3000/fp',
+  signInFlow: 'popup',
+});
+```
+
+
+

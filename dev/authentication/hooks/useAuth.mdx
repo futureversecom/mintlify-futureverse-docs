@@ -1,0 +1,185 @@
+---
+title: "useAuth"
+---
+
+The `useAuth()` hook provides access to essential authentication methods and user session data from `FutureverseAuthProvider`. It exposes the following methods and variables:
+
+-   [`signIn()`](https://docs.futureverse.com/dev/authentication/hooks/useauth#signin)
+    
+-   [`signOut()`](https://docs.futureverse.com/dev/authentication/hooks/useauth#signout)
+    
+-   [`authClient`](https://docs.futureverse.com/dev/authentication/hooks/useauth#authclient)
+    
+-   [`userSession`](https://docs.futureverse.com/dev/authentication/hooks/useauth#usersession)
+    
+-   [`authMethod`](https://docs.futureverse.com/dev/authentication/hooks/useauth#authmethod)
+    
+-   [`isFetchingSession`](https://docs.futureverse.com/dev/authentication/hooks/useauth#isfetchingsession)
+    
+
+#### Example:
+``` typescript
+import { useAuth } from '@futureverse/auth-react';
+
+const { userSession } = useAuth();
+...
+
+  if (!userSession) {
+    return <h1>Sign in to send funds</h1>;
+  }
+```
+
+## useAuth Methods
+
+### `signIn()`
+
+This method is used for signing in when not using the `auth-ui` library, ideal for building custom authentication flows. It accepts two parameters:
+
+-   `{SignInOptions}`: A Sign-in options object. The object can include the required type of authentication method, and the optionals the signer, and the account address.
+    
+-   `flow`: It is an optional parameter that determines the sign-in flow, which can be `redirect` or `popup`. It defaults to `redirect`.
+    
+
+#### Example:
+``` typescript
+const { signIn } = useAuth();
+...
+
+return(
+<>
+	<button
+		onClick={ async() => {
+			await signIn({ type: 'eoa', signer, address }, flow);
+		}}
+		className="green"
+	>
+		Sign In
+	</button>
+</>
+);
+```
+
+### signOut()
+Method for sign-out. It can accept one parameter:
+
+#### Example:
+``` typescript
+const { signOut } = useAuth();
+...
+
+<button
+	onClick={() => {
+		isConnected && disconnect();
+		signOut();
+	}}
+	className="green"
+>
+	Log Out
+</button>
+```
+
+### `authClient `
+Initialisation of `FutureverseAuthClient`.
+
+#### Example:
+``` typescript
+const authClient = new FutureverseAuthClient({
+  clientId,
+  environment: 'production',
+  redirectUri: '<your-app-redirect-endpoint>',
+});
+```
+
+### `userSession`
+
+An object containing the user session data:
+
+-   EOA (Externally Owned Account)
+    
+-   Chain ID
+    
+-   Custodian
+    
+-   FuturePass
+    
+-   Linked Address (an array)
+    
+-   User (OICD or `null)`
+
+<Info>More information about the acronyms mentioned above can be found in the [Glossary](https://docs.futureverse.com/dev/glossary) section.</Info>
+
+#### Example
+``` typescript
+const {  userSession } = useAuth();
+
+...
+// UI code
+return(
+	<>
+		<div className="row">User EOA: {userSession.eoa}</div>
+		<div className="row">User Chain ID: {userSession.chainId}</div>
+		<div className="row">User Custodian: {userSession.custodian}</div>
+		<div className="row">User Futurepass: {userSession.futurepass}</div>
+		<div className="row">User Linked Address: {userSession.linked[0]}</div>
+		<div className="row">User OICD: {userSession.user}</div>
+	</>
+);
+```
+
+### `authMethod`
+Method that returns the type of authentication method used:
+
+-   EOA
+    
+-   Google
+    
+-   Facebook
+    
+-   X (former Twitter)
+    
+-   TikTok
+    
+-   Email
+    
+
+#### Example
+``` typescript
+const {  userSession, authMethod } = useAuth();
+
+...
+// UI code
+return(
+	<>
+		<div className="row">Authentication Method: {authMethod}</div>
+		<div className="row">User Chain ID: {userSession.chainId}</div>
+	</>
+);
+```
+![](https://docs.futureverse.com/~gitbook/image?url=https%3A%2F%2F1883120563-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FefVNmeWS2g2tg0iUr78C%252Fuploads%252FJPhjybrDfMbNno69pQMt%252FauthMethoduserSessionDemo.png%3Falt%3Dmedia%26token%3D12b90109-2ccc-4213-8892-3d4f08351d61&width=768&dpr=4&quality=100&sign=fa27c345&sv=2)
+
+### `isFetchingSession `
+A boolean that indicates whether the session data is still being fetched (`true` if loading, `false` once complete). Use it to manage loading states in your UI.
+
+``` typescript
+const {  userSession, authMethod, isFetchingSession } = useAuth();
+
+...
+// UI code
+
+return (
+	{isFetchingSession ? (
+		<div>Loading User...</div>
+	):(
+		<>
+			<div className="row">Authentication Method: {authMethod}</div>
+			<div className="row">User Chain ID: {userSession.chainId}</div>
+		</>
+	)}
+);
+```
+
+
+
+
+
+

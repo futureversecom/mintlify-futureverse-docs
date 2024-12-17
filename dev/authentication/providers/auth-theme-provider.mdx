@@ -1,0 +1,24 @@
+---
+title: "AuthThemeProvider"
+---
+
+Futureverse [Auth UI](https://www.npmjs.com/package/@futureverse/auth-ui) gives developers the flexibility to implement custom CSS and create their own components for login/signup on their applications. Using the `AuthThemeProvider`, developers can access the library's color palette to use or customize the options provided.
+
+To provide Auth UI color values to the root of their application, you need to wrap your children's components with the `AuthThemeProvider` instead of `AuthUiProvider`.
+
+#### Example:
+
+``` typescript
+import { AuthThemeProvider, ThemeConfig } from '@futureverse/auth-ui';
+
+
+...
+    <AuthThemeProvider authClient={authClient} themeConfig={ThemeConfig}>
+      {children}
+    </AuthThemeProvider>
+...
+```
+
+
+
+

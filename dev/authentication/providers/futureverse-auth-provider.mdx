@@ -1,0 +1,46 @@
+---
+title: "FutureverseAuthProvider"
+---
+
+It supplies session-related methods and variable objects to the children and exposes the following properties:
+
+-   `signer`
+    
+-   `signIn()`
+    
+-   `signOut()`
+    
+-   `authClient`
+    
+-   `userSession`
+    
+-   `authMethod`
+    
+-   `isFetchingSession`
+    
+
+<Info>Information and examples of the properties above can be found on the [`useAuth()`](https://docs.futureverse.com/dev/authentication/hooks/useauth) page.</Info>
+
+In the code below, we instantiate `FutureverseAuthClient` and pass the initialized variable `authClient` as the provider's property.
+
+`authClient` is a required property.
+
+Example:
+
+``` typescript
+
+    import { FutureverseAuthClient, FutureverseWagmiProvider, FutureverseAuthProvider } from '@futureverse/auth-react';
+    import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+    
+    const authClient = new FutureverseAuthClient({
+      clientId,
+      environment: 'production',
+      redirectUri: '<your-app-redirect-endpoint>',
+    });
+    
+    ...
+        <FutureverseAuthProvider authClient={authClient}>
+          {children}
+        </FutureverseAuthProvider>
+    ...
+```
