@@ -57,7 +57,7 @@
     },
     {
       "name": "API Reference",
-      "url": "api"
+      "url": "api-reference"
     }
   ],
   "modeToggle": {
@@ -144,15 +144,15 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api/introduction"
+        "api-reference/introduction"
       ]
     },
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api/endpoint/get",
-        "api/endpoint/create",
-        "api/endpoint/delete"
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
     }
   ],
