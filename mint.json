@@ -2,7 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Futureverse",
   "metadata": {
-    "og:image": "images/docs.png"
+    "og:image": "images/docs.png",
+    "twitter:image": "images/docs.png"
 },
   "logo": {
     "dark": "/logo/dark.svg",
