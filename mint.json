@@ -59,7 +59,9 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-    }
+    },
+    { "name": :Prviate Test:,
+      "url": "private-test" }
   ],
   "modeToggle": {
     "default": "dark"
