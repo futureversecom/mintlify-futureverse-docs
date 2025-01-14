@@ -59,9 +59,6 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-    },
-    { "name": "Prviate Test",
-      "url": "private-test"
     }
   ],
   "modeToggle": {
@@ -158,13 +155,6 @@
         "api-reference/endpoint/create",
         "api-reference/endpoint/delete"
       ]
-    },
-    {
-    "group": "Private Pages",
-    "pages": [
-      "private-test/overview.mdx",
-      "private-test/page-test.mdx"
-    ]
     }
   ],
   "footerSocials": {
